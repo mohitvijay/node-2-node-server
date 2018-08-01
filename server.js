@@ -23,9 +23,9 @@ app.use((req,res,next) => {
     next();
 })
 
-app.use((req, res, next) => {
-    res.render('maintainence.hbs');
-});
+// app.use((req, res, next) => {
+//     res.render('maintainence.hbs');
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -35,6 +35,12 @@ app.get('/', (req,res) => {
         welcomeMessage: 'Hello to the world of expree.js',
     });
 });
+
+app.get('/project', (req,res) => {
+    res.render('project.hbs', {
+        pageTitle: 'Project page'
+    })
+})
 
 app.get('/bad', (req,res) => {
     res.send({
